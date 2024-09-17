@@ -1,0 +1,35 @@
+<!-- "npx serve" cmd serves all my files on the http server
+using this cmd u can transfer all the files on the website and if u open the network IP on 
+dusra laptop using same wifi u get the files :)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS</title>
+</head>
+<body style="background-color: black;">
+    <h1 style="color: beige;">CROSS ORIGIN RESOURCE SHARING </h1>
+    <input id="a" type="text" placeholder="Enter the value of a "></input>
+    <input id="b" type="text" placeholder="Enter the value of b "></input>
+    <button onclick="SendRequest()">Calculate</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <script>
+        async function SendRequest(){
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            const response = await axios.post("http://localhost:5000/sum",{
+                a:a,
+                b:b
+            })
+        }
+        console.log(response);
+        
+    </script>
+
+</body>
+</html>
+<!-- npx serves files on intranet nd not on internet mtlab same wifi pe  -->
+ <!-- CORS vulnerable error are on browser pe on postman this works -->
